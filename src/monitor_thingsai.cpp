@@ -43,6 +43,7 @@ int GiveMeTimestamp() {
 
   while (client.available()) {
     String line = client.readStringUntil('\r');                    //indexOf() is a funtion to search for smthng , it returns -1 if not found
+    // Serial.println(line);
     int pos = line.indexOf("\"timestamp\"");                       //search for "\"timestamp\"" from beginning of response got and copy all data after that , it'll be your timestamp
     if (pos >= 0) {
       int j = 0;
@@ -70,7 +71,6 @@ void setup() {
 
   //if you come here you have connected to the WiFi
   Serial.println("connected...yeey :");
- 
 }
 
 void loop() 
@@ -78,7 +78,6 @@ void loop()
   int analogValue = analogRead(outputpin);
   {
     /////////////////////////////////////// SEND THE QUERY AND RECEIVE THE RESPONSE///////////////////////  
-
     t1=(analogValue/1024.0) *5000;
     Serial.print("temp: ");
     Serial.println(t1);
